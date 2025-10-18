@@ -1,5 +1,5 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import react from "@vitejs/plugin-react-swc";
 import path from "path";
 // Hapus 'componentTagger' jika Anda tidak tahu itu apa,
 // atau pastikan impornya benar jika Anda menggunakannya.
