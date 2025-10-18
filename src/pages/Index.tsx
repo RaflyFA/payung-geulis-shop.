@@ -1,6 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import avatar1 from "@/assets/profile1.jpg";
+import avatar2 from "@/assets/profile2.jpg";
+import avatar3 from "@/assets/profile3.jpg";
+import avatar4 from "@/assets/profile4.jpg";
 import {
   ShoppingBag,
   Umbrella,
@@ -43,6 +47,8 @@ const Index = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isMenuOpen]);
+
+  const avatars = [avatar1, avatar2, avatar3, avatar4];
 
   const products = [
     {
@@ -197,7 +203,7 @@ const Index = () => {
         <div className="container mx-auto  px-4 lg:px-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 animate-in fade-in slide-in-from-left duration-700">
-              <h2 className="text-3xl md:text-6xl font-bold leading-tight">
+              <h2 className="text-4xl md:text-6xl font-bold leading-tight">
                 Lebih dari Sekadar
                 <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                   {" "}
@@ -225,10 +231,12 @@ const Index = () => {
               </div>
               <div className="flex items-center gap-1 lg:gap-6 lg:-4 lg:pt-4">
                 <div className="flex -space-x-2">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div
-                      key={i}
-                      className="w-6 lg:w-10 h-6 lg:h-10 rounded-full bg-gradient-to-br from-primary to-accent border-2 border-background"
+                  {avatars.map((avatarSrc, index) => (
+                    <img
+                      key={index}
+                      src={avatarSrc}
+                      alt={`Pelanggan ${index + 1}`}
+                      className="w-6 lg:w-10 h-6 lg:h-10 rounded-full border-2 border-background object-cover"
                     />
                   ))}
                 </div>
