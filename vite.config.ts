@@ -7,8 +7,6 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  // INI BAGIAN PALING PENTING
-  base: mode === "production" ? "/payung-geulis-shop/" : "/",
 
   server: {
     host: "::",
