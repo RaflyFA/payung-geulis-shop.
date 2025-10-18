@@ -14,6 +14,7 @@ import {
   Menu,
   X,
 } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import heroImage from "@/assets/hero-umbrellas.jpg";
 import redUmbrella from "@/assets/red-umbrella.jpg";
 import blueUmbrella from "@/assets/blue-umbrella.jpg";
@@ -137,6 +138,7 @@ const Index = () => {
             >
               Kontak
             </a>
+            <ThemeToggle />
             <Button size="sm">
               <ShoppingBag className="h-4 w-4 mr-2" />
               Keranjang
@@ -186,6 +188,7 @@ const Index = () => {
             {/* Tambahkan text-2xl */}
             Kontak
           </a>
+          
           <Button
             size="sm"
             className="w-full mt-4 teks-sm lg:text-2xl h-auto py-2"
@@ -195,6 +198,7 @@ const Index = () => {
             {/* Sesuaikan ukuran ikon */}
             Keranjang
           </Button>
+          <ThemeToggle />
         </div>
       </nav>
 
