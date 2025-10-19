@@ -5,6 +5,9 @@ import avatar1 from "@/assets/profile1.jpg";
 import avatar2 from "@/assets/profile2.jpg";
 import avatar3 from "@/assets/profile3.jpg";
 import avatar4 from "@/assets/profile4.jpg";
+import workshopImage1 from "@/assets/workshop-1.jpeg";
+import workshopImage2 from "@/assets/workshop-2.jpeg";
+import workshopImage3 from "@/assets/workshop-3.jpeg";
 import {
   ShoppingBag,
   Umbrella,
@@ -55,7 +58,7 @@ const Index = () => {
     {
       id: 1,
       name: "Oriental Dekorasi 80cm",
-      price: "Rp 45.000",
+      price: "Rp 150.000",
       image: redUmbrella,
       category: "Classic",
       description:
@@ -64,9 +67,9 @@ const Index = () => {
     {
       id: 2,
       name: "Payung Menari 80cm",
-      price: "Rp 85.000",
+      price: "Rp 120.000",
       image: blueUmbrella,
-      category: "Premium",
+      category: "Lestari",
       description:
         "Diciptakan untuk daya tahan maksimal, setiap payung ditopang oleh bambu pilihan yang kokoh dan fleksibel. Kainnya menggunakan material rPET premium yang tidak hanya tahan air, tetapi juga memiliki ketahanan warna.",
     },
@@ -97,6 +100,39 @@ const Index = () => {
       icon: <Truck className="h-6 w-6" />,
       title: "Pengiriman Cepat",
       description: "Gratis ongkir untuk pembelian di atas Rp 500.000",
+    },
+  ];
+
+  const workshopPackages = [
+    {
+      id: 1,
+      name: "Workshop Merakit Payung Geulis",
+      price: "Rp 150.000",
+      priceSuffix: "/ orang",
+      image: workshopImage1,
+      category: "Teknik Merakit",
+      description:
+        "Pelajari rahasia merakit kerangka Payung Geulis dari bambu pilihan. Bimbingan penuh dari pengrajin akan memandu Anda membuat payung kokoh dari awal. *Paket ini fokus pada perakitan kerangka & kain polos.*",
+    },
+    {
+      id: 2,
+      name: "Workshop Melukis Payung Geulis",
+      price: "Rp 150.000",
+      priceSuffix: "/ orang",
+      image: workshopImage2,
+      category: "Seni Mendesain",
+      description:
+        "Tuangkan kreativitas Anda di atas kanvas payung. Kami sediakan payung polos (bahan rPET), cat berkualitas, kuas, dan inspirasi. Bawa pulang karya seni unik Anda sendiri. *Sempurna untuk Anda yang menyukai seni lukis.*",
+    },
+    {
+      id: 3,
+      name: "Paket Lengkap (Merakit & Lukis)",
+      price: "Rp 250.000",
+      priceSuffix: "/ orang",
+      image: workshopImage3,
+      category: "Pengalaman Penuh",
+      description:
+        "Rasakan pengalaman penuh! Dari merakit kerangka bambu hingga melukis desain impian Anda. Ini adalah pengalaman otentik, dari nol hingga mahakarya. *Termasuk semua bahan rakit dan bahan lukis.*",
     },
   ];
 
@@ -188,7 +224,7 @@ const Index = () => {
             {/* Tambahkan text-2xl */}
             Kontak
           </a>
-          
+
           <Button
             size="sm"
             className="w-full mt-4 teks-sm lg:text-2xl h-auto py-2"
@@ -340,6 +376,72 @@ const Index = () => {
                   {/* ------------------------------------------- */}
                   <Button className="w-full" variant="outline">
                     Tambah ke Keranjang
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Workshop Section */}
+      <section
+        id="workshop"
+        className="py-20 bg-gradient-to-b from-muted/30 to-background"
+      >
+        <div className="container mx-auto px-4 lg:px-10">
+          {/* Judul Seksi */}
+          <div className="text-center mb-12 space-y-3">
+            <h2 className="text-2xl lg:text-4xl font-bold">
+              Ikuti Workshop Kami
+            </h2>
+            <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+              Rasakan pengalaman otentik membuat Payung Geulis Anda sendiri.
+              Sempurna untuk aktivitas grup, keluarga, atau individu.
+            </p>
+          </div>
+
+          {/* Grid Kartu Workshop */}
+          <div className="grid md:grid-cols-3 gap-6 justify-center">
+            {workshopPackages.map((pkg) => (
+              <Card
+                key={pkg.id}
+                className="group overflow-hidden border-border hover:shadow-xl transition-all duration-300"
+              >
+                <div className="overflow-hidden">
+                  <img
+                    src={pkg.image}
+                    alt={pkg.name}
+                    className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <CardContent className="p-4 space-y-5">
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <p className="text-sm text-primary font-medium">
+                        {pkg.category}
+                      </p>
+                      <h3 className="text-2sm lg:text-xl font-semibold mt-1">
+                        {pkg.name}
+                      </h3>
+                    </div>
+                    {/* --- BLOK INI BERUBAH --- */}
+                    <div className="text-right flex-shrink-0">
+                      <p className="text-2sm lg:text-lg font-bold text-accent">
+                        {pkg.price}
+                      </p>
+                      <p className="text-xs text-muted-foreground -mt-1">
+                        {pkg.priceSuffix}
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-sm text-muted-foreground h-24 overflow-hidden">
+                    {pkg.description}
+                  </p>
+                  <Button className="w-full" variant="default">
+                    {" "}
+                    {/* Menggunakan variant 'default' agar menonjol */}
+                    Daftar Sekarang
                   </Button>
                 </CardContent>
               </Card>
